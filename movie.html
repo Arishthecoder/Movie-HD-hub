@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch & Download - SceneBox</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    video {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #00ffe1, #3b3b3b);
+      color: #000;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    .download-btn:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="videoTitle">Loading video...</h1>
+
+  <video controls id="videoPlayer">
+    <source id="videoSource" src="" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <br>
+
+  <a class="download-btn" id="downloadBtn" href="" download>
+    Download Video
+  </a>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const videoKey = params.get("video");
+
+    // Define all your videos here
+    const videos = {
+      soloLeveling: {
+        title: "Solo Leveling",
+        src: "assets/videos/Solo Leveling Season 2 -Arise from the Shadow- - DUB TRAILER.mp4"
+      },
+      wednesday: {
+        title: "Wednesday Season 2",
+        src: "assets/videos/Wednesday Season 2_ 2025 Trailer _ Netflix.mp4"
+      },
+      comedyMovie: {
+        title: "Superman Trailer",
+        src: "assets/videos/Superman _ Official Teaser Trailer.mp4"
+      },
+      thrillerMovie: {
+        title: "Stranger Things 4",
+        src: "assets/videos/Stranger Things 4 _ Volume 2 Trailer _ Netflix.mp4"
+      },
+      avengers: {
+        title: "Avengers Doomsday",
+        src: "assets/videos/Avengers_ Doomsday (2026) - First Trailer _ Marvel.mp4"
+      },
+      johnny: {
+        title: "Johnny English Strikes Again",
+        src: "assets/videos/Johnny English Strikes Again - Official Trailer (HD) - In Theaters October 26.mp4"
+      }
+    };
+
+    const selected = videos[videoKey];
+
+    if (selected) {
+      document.getElementById("videoTitle").textContent = selected.title;
+      document.getElementById("videoSource").src = selected.src;
+      document.getElementById("videoPlayer").load();
+      document.getElementById("downloadBtn").href = selected.src;
+    } else {
+      document.getElementById("videoTitle").textContent = "Video not found!";
+      document.getElementById("videoPlayer").style.display = "none";
+      document.getElementById("downloadBtn").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
