@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movies HD hub  - Watch and Download Movies</title>
+  <title>Movies HD hub - Watch and Download Movies</title>
+
   <style>
     /* Basic Styles */
     body {
@@ -15,30 +16,32 @@
     }
 
     .site-header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 3rem;
-  background: linear-gradient(to right, #00c3ff, #000000); /* Metallic Blue to Black */
-  color: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-}
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 3rem;
+      background: linear-gradient(to right, #00c3ff, #000000); /* Metallic Blue to Black */
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      animation: fadeInDown 1s ease-in-out;
+    
+    }
 
-.logo {
-  position: absolute;
-  left: 20px;
-  height: 60px;
-  width: auto;
-  border-radius: 9px;
-}
+    .logo {
+      position: absolute;
+      left: 20px;
+      height: 60px;
+      width: auto;
+      border-radius: 9px;
+      
+    }
 
-.site-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin: 0;
-}
-
+    .site-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
 
     /* Video Cards Container */
     .video-container {
@@ -61,6 +64,7 @@
       text-align: center;
       padding: 13px;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
     .video-card:hover {
@@ -71,31 +75,33 @@
       font-size: 1.2rem;
       color: #fff;
       margin-top: 10px;
+      animation: fadeInDown 1s ease-in-out
+    }
+    .bar {
+      width: 10px;
+      height: 50px;
+      background: #00f2fe;
+      animation: wave 1s infinite ease-in-out;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #00f2fe, 0 0 20px #4facfe;
     }
 
-    video {
+    .bar:nth-child(2) { animation-delay: 0.1s; }
+    .bar:nth-child(3) { animation-delay: 0.2s; }
+    .bar:nth-child(4) { animation-delay: 0.3s; }
+    .bar:nth-child(5) { animation-delay: 0.4s; }
+    .video-card video {
       width: 100%;
       border-radius: 8px;
     }
-
-    /* Download Button Style */
-    .download-button {
-      margin-top: 10px;
-      padding: 13px 35px;
-      background-color: #ff5722;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.3s ease;
+    header h1 {
+      font-size: 3.5rem;
+      color: #ffffff;
+      text-shadow: 4px 0 25px #00c3fe, 9px 0 30px #05fff3;
+      animation: fadeInDown 99s ease-in-out
     }
 
-    .download-button:hover {
-      background-color: #e64a19;
-    }
 
-    /* Footer Style */
     footer {
       background-color: #1f1f1f;
       color: #fff;
@@ -146,37 +152,16 @@
 <body>
 
   <header class="site-header">
-    <img src="assets/images/ChatGPT Image Apr 21, 2025, 02_10_42 PM" alt="Movie HD hub Logo" class="logo" />
     <h1 class="site-title">Movies HD hub</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWm2cnww6nwec_yu8gyk5HDGiaHJ9njPew2Q&s" alt="Placeholder Logo" class="logo">
+
+
   </header>
-  
-  
-<!-- ✅ Open Graph Meta (for Facebook, LinkedIn, etc.) -->
-<meta property="og:title" content="Movies HD hub - Watch and Download Movies">
-<meta property="og:description" content="Watch the latest movies and download trailers instantly with SceneBox. No clutter, just great content.">
-<meta property="og:image" content="http://www.moviehdhub.com">
-<meta property="og:url" content="https://www.moviehdhub.com">
-<meta property="og:type" content="website">
 
-<!-- ✅ Twitter Card Meta -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SceneBox - Watch and Download Movies">
-<meta name="twitter:description" content="Watch and download movies in an elegant interface, completely free.">
-<meta name="twitter:image" content="https://arishthecoder.github.io/moviehdhubassets/img/ChatGPT Image Apr 5, 2025, 04_18_58 PM">
-
-<!-- ✅ Canonical Link -->
-<link rel="canonical" href="https://arishthecoder.github.io/SceneBox/">
-
-<!-- ✅ Favicon (Optional - replace with your own) -->
-<link rel="icon" href="assets/img/ChatGPT Image Apr 5, 2025, 04_18_58 PM" type="image/x-icon">
-
-
-  <!-- Search Bar -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search for movies..." onkeyup="searchVideos()">
   </div>
 
-  <!-- Filter Buttons -->
   <div class="filter-buttons">
     <button onclick="filterCategory('all')">All</button>
     <button onclick="filterCategory('action')">Action</button>
@@ -185,105 +170,113 @@
     <button onclick="filterCategory('trending')">Trending</button>
   </div>
 
-  <!-- Video Cards -->
   <div class="video-container">
 
- <!-- Video 1 -->
-<div class="video-card" data-title="Solo Leveling" data-category="action">
-  <video controls>
-    <source src="assets/videos/Solo Leveling Season2-Arise from the Shadow - DUB TRAILER.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  
-  <!-- Title redirects to second page -->
-  <a href="movie.html?video=soloLeveling" class="video-title" style="text-decoration: none; color: rgb(0, 253, 211); font-weight: bold; display: block; text-align: center; margin-top: 1rem;">
-    Solo Leveling
-  </a>
-</div>
+    <!-- Video 1 -->
+    <a href="movie.html?video=davidhouse1" class="video-card-link">
+      <div class="video-card" data-title="Solo Leveling" data-category="action">
+        <video controls>
+          <source src="assets/videos/House.of.David.S01.720p.10Bit.WEB-DL.Hindi.5.1-English.HEVC.x265-HDHub4u.Ms" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <h2>House of david</h2>
+      </div>
+    </a>
+   
 
+    <a href="movie.html?video=davidhouse2" class="video-card-link">
+      <div class="video-card" data-title="Solo Leveling" data-category="action">
+        <video controls>
+          <source src="assets/videos/House.of.David.S01.720p.10Bit.WEB-DL.Hindi.5.1-English.HEVC.x265-HDHub4u.Ms" type="video/mp4"  />
+          Your browser does not support the video tag.
+        </video>
+        <h2>David house S2</h2>
+      </div>
+    </a>
+   
 
+    <!-- Video 2 -->
+   
 
-<!-- Video 2 (add more videos similarly) -->
-<div class="video-card" data-title="Action Movie" data-category="action">
-  <video controls>
-    <source src="assets/videos/Wednesday Season 2_ 2025 Trailer _ Netflix" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  
-  <!-- Title redirects to second page -->
-  <a href="movie.html?video=wednesday " class="video-title" style="text-decoration: none; color: rgb(0, 253, 211); font-weight: bold; display: block; text-align: center; margin-top: 1rem;">
-    Wednesday Season 2
-  </a>
-</div>
+    
+    <a href="movie.html?video=empuran" class="video-card-link">
+      <div class="video-card" data-title="Solo Leveling" data-category="action">
+        <video controls>
+          <source src="C:\Users\DELL\Downloads\L2.Empuran.2025.720p.HEVC.WEB.DL.Hindi.ORG.Multi.HC.ESub.x265.HDHub4u.Ms (1).mkv" type="video/mp4"  />
+          Your browser does not support the video tag.
+        </video>
+        <h2> L2 Empuran </h2>
+      </div>
+    </a>
 
-
-
-<!-- Video 3 -->
-<div class="video-card" data-title="Comedy Movie" data-category="comedy">
-  <video controls>
-    <source src="assets/videos/Superman _ Official Teaser Trailer" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  
-  <!-- Title redirects to second page -->
-  <a href="movie.html?video=comedyMovie" class="video-title" style="text-decoration: none; color: rgb(0, 253, 211); font-weight: bold; display: block; text-align: center; margin-top: 1rem;">
-    Superman
-  </a>
-</div>
-
-
-
-
-
-<div class="video-card" data-title="thrillerMovie" data-category="comedy">
-  <video controls>
-    <source src="assets/videos/Stranger Things 4 _ Volume 2 Trailer _ Netflix" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  
-  <!-- Title redirects to second page -->
-  <a href="movie.html?video=thrillerMovie" class="video-title" style="text-decoration: none; color: rgb(0, 253, 211); font-weight: bold; display: block; text-align: center; margin-top: 1rem;">
-    Stranger things 4
-  </a>
-</div>
-
-
-
-<div class="video-card" data-title="Thriller Movie" data-category="comedy">
-  <video controls>
-    <source src="assets/videos/Avengers_ Doomsday (2026) - First Trailer _ Marvel" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  
-  <!-- Title redirects to second page -->
-  <a href="movie.html?video=comedyMovie" class="video-title" style="text-decoration: none; color: rgb(0, 253, 211); font-weight: bold; display: block; text-align: center; margin-top: 1rem;">
-    Avengers Doomsday (2026)
-  </a>
-</div>
-
-
-
-<div class="video-card" data-title="Comedy Movie" data-category="comedy">
-  <video controls>
-    <source src="assets/videos/Johnny English Strikes Again - Official Trailer (HD) - In Theaters October 26" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  
-  <!-- Title redirects to second page -->
-  <a href="movie.html?video=comedyMovie" class="video-title" style="text-decoration: none; color: rgb(0, 253, 211); font-weight: bold; display: block; text-align: center; margin-top: 1rem;">
-    Johnny english:Strikes Again
-  </a>
-</div>
 
 
     
-    <!-- Add more videos here -->
+    <a href="movie.html?video=soloLeveling" class="video-card-link">
+      <div class="video-card" data-title="Solo Leveling" data-category="action">
+        <video controls>
+          <source src="assets/videos/Solo Leveling Season2-Arise from the Shadow - DUB TRAILER.mp4" type="video/mp4"  />
+          Your browser does not support the video tag.
+        </video>
+        <h2>Wednesday S2</h2>
+      </div>
+    </a>
+
+    
+    <a href="movie.html?video=soloLeveling" class="video-card-link">
+      <div class="video-card" data-title="Solo Leveling" data-category="action">
+        <video controls>
+          <source src="assets/videos/Solo Leveling Season2-Arise from the Shadow - DUB TRAILER.mp4" type="video/mp4"  />
+          Your browser does not support the video tag.
+        </video>
+        <h2>Wednesday S2</h2>
+      </div>
+    </a>
+
+
+
+    
+    <a href="movie.html?video=soloLeveling" class="video-card-link">
+      <div class="video-card" data-title="Solo Leveling" data-category="action">
+        <video controls>
+          <source src="assets/videos/Solo Leveling Season2-Arise from the Shadow - DUB TRAILER.mp4" type="video/mp4"  />
+          Your browser does not support the video tag.
+        </video>
+        <h2>Wednesday S2</h2>
+      </div>
+    </a>
+
+
+
+    
+    <a href="movie.html?video=soloLeveling" class="video-card-link">
+      <div class="video-card" data-title="Solo Leveling" data-category="action">
+        <video controls>
+          <source src="assets/videos/Solo Leveling Season2-Arise from the Shadow - DUB TRAILER.mp4" type="video/mp4"  />
+          Your browser does not support the video tag.
+        </video>
+        <h2>Wednesday S2</h2>
+      </div>
+    </a>
+
+
+
+    
+    <a href="movie.html?video=soloLeveling" class="video-card-link">
+      <div class="video-card" data-title="Solo Leveling" data-category="action">
+        <video controls>
+          <source src="assets/videos/Solo Leveling Season2-Arise from the Shadow - DUB TRAILER.mp4" type="video/mp4"  />
+          Your browser does not support the video tag.
+        </video>
+        <h2>Wednesday S2</h2>
+      </div>
+    </a>
+    <!-- Additional videos -->
 
   </div>
 
-  <!-- Footer -->
   <footer>
-    © 2025 Movie HD hub. All rights reserved.
+    © 2025 Movies HD hub. All rights reserved.
   </footer>
 
   <script>
@@ -309,8 +302,6 @@
       });
     }
   </script>
-
-
 
 </body>
 </html>

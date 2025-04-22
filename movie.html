@@ -2,106 +2,329 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Watch & Download - Movie HD hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Watch Movie - Movies HD hub</title>
   <style>
     body {
-      background-color: #121212;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 2rem;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1c1c1c;
+      color: #fff;
     }
-
-    h1 {
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 20px;
     }
-
-    video {
-      width: 90%;
-      max-width: 800px;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
+    .main-content {
+      flex: 3;
+      margin-right: 20px;
     }
-
-    .download-btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      font-weight: bold;
-      background: linear-gradient(135deg, #00ffe1, #3b3b3b);
-      color: #000;
-      text-decoration: none;
+    .main-content video {
+      width: 100%;
       border-radius: 10px;
-      transition: 0.3s ease;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    .actions button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #444;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .actions button:hover {
+      background-color: #666;
+    }
+    .description {
+      background-color: #2b2b2b;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    .playlist {
+      flex: 1;
+      background-color: #2b2b2b;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .playlist h3 {
+      margin-top: 0;
+    }
+    .playlist-item {
+      background-color: #3a3a3a;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .playlist-item:hover {
+      background-color: #555;
+    }
+    .playlist-item a {
+      text-decoration: none;
+      color: #00ffd9;
     }
 
-    .download-btn:hover {
-      opacity: 0.8;
-    }
+
+  .comment strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  .comment p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+
+  .page-wrapper {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.main-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-player {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Sidebar styling */
+.sidebar {
+  flex: 1;
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 19px;
+}
+
+.sidebar li {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #065fd4;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* Comment Section Styling */
+.comment-section {
+  margin-top: 30px;
+  font-family: Arial, sans-serif;
+  width: 30%;
+}
+
+.comment-section h2 {
+  font-size: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.comment-form button {
+  background-color: #065fd4;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.comment-form button:hover {
+  background-color: #004ab1;
+}
+
+.comment {
+  background-color: #f9f9f9;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.comment strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 14px;
+}
+
   </style>
 </head>
 <body>
 
-  <h1 id="videoTitle">Loading video...</h1>
 
-  <video controls id="videoPlayer">
-    <source id="videoSource" src="" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
 
-  <br>
+  
+  </div>
+  <!-- Comment Section End -->
+  <div class="container">
+    <div class="main-content">
+      <video controls>
+        <source src="assets/videos/L2.Empuran.2025.720p.HEVC.WEB.DL.Hindi.ORG.Multi.HC.ESub.x265.HDHub4u.Ms (1) " type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-  <a class="download-btn" id="downloadBtn" href="" download>
-    Download Video
-  </a>
+      <!-- Buttons -->
+      <div class="actions">
+        <button id="likeBtn"> Like</button>
+        <button id="dislikeBtn"> Dislike</button>
+        <button id="shareBtn"> Share</button>
+      </div>
 
+      <!-- Description -->
+      <div class="description">
+        <h2>Solo Leveling Season 2</h2>
+        <p>The wait is over — Sung Jin-Woo returns in the epic Season 2 of Solo Leveling. Arise!</p>
+        <p><strong>Uploaded:</strong> Apr 21, 2025 • <strong>Views:</strong> 1.2M</p>
+      </div>
+    </div><br>
+
+    <!-- Playlist Sidebar -->
+    <div class="playlist">
+      <h3>Up Next</h3>
+      <div class="playlist-item"><a href="movie.html1video=wednesday">Wednesday Season 2</a></div>
+      <div class="playlist-item"><a href="movie.html?video=superman">Superman Teaser</a></div>
+      <div class="playlist-item"><a href="movie.html?video=strangerThings">Stranger Things 4</a></div>
+      <div class="playlist-item"><a href="movie.html?video=avengers">Avengers Doomsday</a></div>
+    </div>
+  </div>
+
+
+  <!-- JavaScript -->
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const videoKey = params.get("video");
+    let liked = false;
+    let disliked = false;
 
-    // Define all your videos here
-    const videos = {
-      soloLeveling: {
-        title: "Solo Leveling",
-        src: "assets/videos/Solo Leveling Season 2 -Arise from the Shadow- - DUB TRAILER.mp4"
-      },
-      wednesday: {
-        title: "Wednesday Season 2",
-        src: "assets/videos/Wednesday Season 2_ 2025 Trailer _ Netflix.mp4"
-      },
-      comedyMovie: {
-        title: "Superman Trailer",
-        src: "assets/videos/Superman _ Official Teaser Trailer.mp4"
-      },
-      thrillerMovie: {
-        title: "Stranger Things 4",
-        src: "assets/videos/Stranger Things 4 _ Volume 2 Trailer _ Netflix.mp4"
-      },
-      avengers: {
-        title: "Avengers Doomsday",
-        src: "assets/videos/Avengers_ Doomsday (2026) - First Trailer _ Marvel.mp4"
-      },
-      johnny: {
-        title: "Johnny English Strikes Again",
-        src: "assets/videos/Johnny English Strikes Again - Official Trailer (HD) - In Theaters October 26.mp4"
-      }
-    };
+    const likeBtn = document.getElementById('likeBtn');
+    const dislikeBtn = document.getElementById('dislikeBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const saveBtn = document.getElementById('saveBtn');
 
-    const selected = videos[videoKey];
+    likeBtn.addEventListener('click', () => {
+      liked = !liked;
+      disliked = false;
+      likeBtn.textContent = liked ? ' Liked' : ' Like';
+      dislikeBtn.textContent = ' Dislike';
 
-    if (selected) {
-      document.getElementById("videoTitle").textContent = selected.title;
-      document.getElementById("videoSource").src = selected.src;
-      document.getElementById("videoPlayer").load();
-      document.getElementById("downloadBtn").href = selected.src;
-    } else {
-      document.getElementById("videoTitle").textContent = "Video not found!";
-      document.getElementById("videoPlayer").style.display = "none";
-      document.getElementById("downloadBtn").style.display = "none";
-    }
+      fetch('/interaction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: liked ? 'like' : 'unlike' })
+      });
+    });
+
+    dislikeBtn.addEventListener('click', () => {
+      disliked = !disliked;
+      liked = false;
+      dislikeBtn.textContent = disliked ? ' Disliked' : ' Dislike';
+      likeBtn.textContent = ' Like';
+
+      fetch('/interaction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: disliked ? 'dislike' : 'undislike' })
+      });
+    });
+
+    shareBtn.addEventListener('click', () => {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url);
+      alert("🔗 Link copied to clipboard:\n" + url);
+    });
+
+    saveBtn.addEventListener('click', () => {
+      alert("💾 Saved to Watch Later (simulated)");
+      fetch('/interaction', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'save' })
+      });
+    });
   </script>
+<script>
+  const videoData = {
+    soloLeveling: {
+      title: "Solo Leveling Season 2",
+      src: "assets/videos/L2.Empuran.2025.720p.HEVC.WEB.DL.Hindi.ORG.Multi.HC.ESub.x265.HDHub4u.Ms (1)",
+      description: "The wait is over — Sung Jin-Woo returns in the epic Season 2 of Solo Leveling. Arise!"
+    },
+    wednesday: {
+      title: "Wednesday Season 2",
+      src: "assets/videos/Wednesday Season 2_ 2025 Trailer _ Netflix",
+      description: "Mystery and magic continue at Nevermore. Catch the new chapter!"
+    },
+    superman: {
+      title: "Superman - Teaser",
+      src: "assets/videos/Superman _ Official Teaser Trailer",
+      description: "The man of steel rises again. First look at the 2025 reboot."
+    },
+    avengers: {
+      title: "Avengers: Doomsday",
+      src: "assets/videos/Avengers_ Doomsday (2026) - First Trailer _ Marvel",
+      description: "Earths mightiest heroes face their darkest day yet. Prepare for Doomsday."
+    }
+    // Add more here as needed
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const videoKey = params.get('video');
+
+  if (videoData[videoKey]) {
+    document.querySelector("video source").src = videoData[videoKey].src;
+    document.querySelector("video").load(); // reload video
+    document.querySelector(".description h2").textContent = videoData[videoKey].title;
+    document.querySelector(".description p").textContent = videoData[videoKey].description;
+  } else {
+    // If not found, show default or error message
+    document.querySelector(".description h2").textContent = "Video Not Found";
+    document.querySelector(".description p").textContent = "Sorry, we couldn't find this video.";
+  }
+</script>
+<div class="page-wrapper">
+  <div class="main-column">
+    <div class="comment-section">
+      <h2>Comments</h2>
+      <form class="comment-form">
+        <textarea rows="4" placeholder="Add a public comment..." required></textarea>
+        <button type="submit">Comment</button>
+      </form>
 
 </body>
 </html>
